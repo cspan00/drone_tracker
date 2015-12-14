@@ -1,8 +1,20 @@
-function getLatLng(data){
+function getLat(){
+
+  strikeLat = []
   for(var i = 0; i < data['strike'].length; i++)
-  console.log(data['strike'][i]['lon'])
+  strikeLat.push(data['strike'][i]['lat'])
+  return strikeLat;
 
 }
+function getLon(){
+
+  strikeLon = []
+  for(var i = 0; i < data['strike'].length; i++)
+  strikeLon.push(data['strike'][i]['lon'])
+  return strikeLon;
+
+}
+
 
 
 
@@ -11,19 +23,22 @@ function createMap(){
 var mapOptions = {
     center: new google.maps.LatLng(20.33877,57.43193),
     zoom: 5,
-    mapTypeId: google.maps.MapTypeId.HYBRID
+    mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-var markerOptions = {
-    position: new google.maps.LatLng(data["strike"][0]["lat"],data["strike"][0]["lon"]),
-    map: map
+for( i = 0; i < getLon().length; i++ ) {
+        var position = new google.maps.LatLng(getLat()[i], getLon()[i]);
+        // bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            // title: markers[i][0]
+        });
+}
 };
-var marker = new google.maps.Marker(markerOptions);
-marker.setMap(map);
 
-};
+
 
 createMap();
-
-getLatLng(data);
+console.log(getLon()[5]);
