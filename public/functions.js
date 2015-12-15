@@ -15,7 +15,18 @@ function getLon(){
 
 }
 
+function setInfo(date, summary, deaths, twitterId){
 
+
+  var info = '<div style="font-family:menlo;font-size:20px;color:red;">'+date+
+  '</div><br><div style="font-family:menlo;font-size:15px;color:black;">'+summary+
+  '</div><br><div style="font-family:menlo;font-size:15px;color:black;">deaths:'+deaths+'</div><br><div><a href = https://twitter.com/dronestream/status/'+twitterId+'/>read more</a></div>'
+
+
+
+
+  return info;
+};
 
 
 
@@ -82,21 +93,26 @@ map.setMapTypeId('map_style');
 // iterate through the arrays returned by getLat and GetLon and place markers on the map
 for( i = 0; i < getLon().length; i++ ) {
         var position = new google.maps.LatLng(getLat()[i], getLon()[i]);
+        var date = data['strike'][i]['date'].substr(0,10);
+        var summary = data['strike'][i]['narrative']
+        var deaths = data['strike'][i]['deaths_max']
+        var twitterId = data['strike'][i]['tweet_id']
+        var title = setInfo(date, summary, deaths, twitterId)
 
         marker = new google.maps.Marker({
             position: position,
             map: map,
-
+            title: title
 
         });
 
-var infoHTML = data['strike'][0]['narrative']
+
 
 var infoWindow = new google.maps.InfoWindow();
 google.maps.event.addListener(marker, 'click', (function() {
             console.log(this);
-            console.log('worked');
-            infoWindow.setContent(infoHTML);
+
+            infoWindow.setContent(this.title);
             infoWindow.open(map, this);
           // infoWindow.setContent(infoWindowContent);
           // infoWindow.open(map, marker);
