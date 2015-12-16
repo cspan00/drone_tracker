@@ -1,4 +1,4 @@
-console.log(data['strike'][0]['date'].substr(0, 10));
+console.log('yay i made something cool');
 
 // populate map div with map centered on yemen
 

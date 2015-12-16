@@ -37,6 +37,17 @@ function setInfo(date, summary, deaths, twitterId){
 
 function createMap(){
   var styles = [
+
+    {
+    "featureType": "all",
+    "elementType": "labels.icon",
+    "stylers": [
+        {
+            "visibility": "off"
+        }
+    ]
+},
+
     {
   "featureType": "landscape",
   "stylers": [
@@ -78,7 +89,7 @@ function createMap(){
 
 
 var mapOptions = {
-    zoom: 5,
+    zoom: 4,
     center: new google.maps.LatLng(20.33877,57.43193),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -91,18 +102,20 @@ map.setMapTypeId('map_style');
 
 
 // iterate through the arrays returned by getLat and GetLon and place markers on the map
-for( i = 0; i < getLon().length; i++ ) {
+for( i = 0; i < data['strike'].length; i++ ) {
         var position = new google.maps.LatLng(getLat()[i], getLon()[i]);
         var date = data['strike'][i]['date'].substr(0,10);
         var summary = data['strike'][i]['narrative']
         var deaths = data['strike'][i]['deaths_max']
         var twitterId = data['strike'][i]['tweet_id']
+        var image = 'greenDot.png'
         var title = setInfo(date, summary, deaths, twitterId)
 
         marker = new google.maps.Marker({
             position: position,
             map: map,
-            title: title
+            title: title,
+            icon: image
 
         });
 
@@ -119,13 +132,12 @@ google.maps.event.addListener(marker, 'click', (function() {
        }));
 
 
-
-
-
 }
 };
 
 
 
+
+
+
 createMap();
-console.log(getLon()[5]);

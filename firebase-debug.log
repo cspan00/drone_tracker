@@ -52,3 +52,57 @@
 [info] i  preparing public directory for upload...
 [debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/firebase/droneTracker/uploads/-K5XmzebwS_vPQUq_eMs?token=XXX&fileCount=8&message= 
 [debug] <<< HTTP RESPONSE 200
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/5.0.0/bin/node /usr/local/bin/firebase deploy
+[debug] Platform:     darwin
+[debug] Node Version: v5.0.0
+[debug] Time:         Tue Dec 15 2015 12:20:29 GMT-0700 (MST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/droneTracker/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/droneTracker/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'droneTracker'...
+[info] 
+[info] i  deploying hosting
+[info] i  preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/firebase/droneTracker/uploads/-K5b4Y_iDi7V_HZlphAP?token=XXX&fileCount=8&message= 
+[debug] <<< HTTP RESPONSE 200
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/5.0.0/bin/node /usr/local/bin/firebase deploy
+[debug] Platform:     darwin
+[debug] Node Version: v5.0.0
+[debug] Time:         Tue Dec 15 2015 12:26:30 GMT-0700 (MST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/droneTracker/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/droneTracker/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'droneTracker'...
+[info] 
+[info] i  deploying hosting
+[info] i  preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/firebase/droneTracker/uploads/-K5b5wWeg94uVSLSZCel?token=XXX&fileCount=8&message= 
+[debug] <<< HTTP RESPONSE 200
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/5.0.0/bin/node /usr/local/bin/firebase deploy
+[debug] Platform:     darwin
+[debug] Node Version: v5.0.0
+[debug] Time:         Tue Dec 15 2015 21:31:03 GMT-0700 (MST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/droneTracker/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/droneTracker/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'droneTracker'...
+[info] 
+[info] i  deploying hosting
+[info] i  preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/firebase/droneTracker/uploads/-K5d2Zk1iRT05UDlkcCQ?token=XXX&fileCount=9&message= 
+[debug] <<< HTTP RESPONSE 200
