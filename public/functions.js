@@ -1,19 +1,51 @@
+
+
+
+
+
 function getLat(){
 
   strikeLat = []
-  for(var i = 0; i < data['strike'].length; i++)
+  for(var i = 0; i < data['strike'].length; i++){
   strikeLat.push(data['strike'][i]['lat'])
+   }
   return strikeLat;
+};
 
-}
+
 function getLon(){
 
   strikeLon = []
   for(var i = 0; i < data['strike'].length; i++)
   strikeLon.push(data['strike'][i]['lon'])
   return strikeLon;
+};
 
-}
+function formatDate(date){
+  date = date;
+  var months = ['null', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+                'September', 'October', 'November', 'December']
+
+  var month = months[date.charAt(6)]
+  var year = date.substr(0, 4)
+  var day = date.substr(8,2)
+  // console.log(year);
+  // console.log(month);
+  // console.log(day);
+
+  var newDate = ''+month+' '+day+' '+year+''
+
+  return newDate;
+
+
+
+};
+
+
+
+
+
+
 
 function setInfo(date, summary, deaths, twitterId){
 
@@ -30,7 +62,8 @@ function setInfo(date, summary, deaths, twitterId){
 
 
 
-// idea!!! to select year, make a new function for each year that only populates the map by selected year.
+
+
 
 
 
@@ -104,11 +137,11 @@ map.setMapTypeId('map_style');
 // iterate through the arrays returned by getLat and GetLon and place markers on the map
 for( i = 0; i < data['strike'].length; i++ ) {
         var position = new google.maps.LatLng(getLat()[i], getLon()[i]);
-        var date = data['strike'][i]['date'].substr(0,10);
+        var date = formatDate(data['strike'][i]['date'].substr(0,10));
         var summary = data['strike'][i]['narrative']
         var deaths = data['strike'][i]['deaths_max']
         var twitterId = data['strike'][i]['tweet_id']
-        var image = 'greenDot.png'
+        var image = 'red_x.png'
         var title = setInfo(date, summary, deaths, twitterId)
 
         marker = new google.maps.Marker({
@@ -123,7 +156,7 @@ for( i = 0; i < data['strike'].length; i++ ) {
 
 var infoWindow = new google.maps.InfoWindow();
 google.maps.event.addListener(marker, 'click', (function() {
-            console.log(this);
+
 
             infoWindow.setContent(this.title);
             infoWindow.open(map, this);
@@ -136,8 +169,5 @@ google.maps.event.addListener(marker, 'click', (function() {
 };
 
 
-
-
-
-
 createMap();
+// formatDate(data['strike'][0]['date'].substr(0,10))
