@@ -148,3 +148,26 @@ createNewMap();
 console.log(setYearLat());
 
 };
+
+
+
+function setSummary(){
+  var select_year = $('#select_year').val()
+  var summaries = []
+  //iterate through data and compare year to year selected, if it matches, return lat longs for that year.
+  for(i = 0; i < data['strike'].length; i++){
+    if(data['strike'][i]['date'].substr(0,4) === select_year){
+
+      summaries.push(data['strike'][i]['narrative'])
+
+    }
+    else if(select_year === "all"){
+    summaries.push(data['strike'][i]['narrative'])
+
+    }
+
+    }
+
+  return summaries;
+
+  }
