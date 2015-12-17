@@ -1,45 +1,5 @@
-function yearMap(){
 
-  function setYearLat(){
-  var select_year = $('#select_year').val()
-  var latYear = [];
-  //iterate through data and compare year to year selected, if it matches, return lat longs for that year.
-  for(i = 0; i < data['strike'].length; i++){
-    if(data['strike'][i]['date'].substr(0,4) === select_year){
-      latYear.push(data['strike'][i]['lat'])
-
-
-    }
-    else if(select_year === "all"){
-    latYear.push(data['strike'][i]['lat'])
-
-    }
-
-
-    }
-    return latYear;
-};
-function setYearLon(){
-var select_year = $('#select_year').val()
-var lonYear = [];
-//iterate through data and compare year to year selected, if it matches, return lat longs for that year.
-for(i = 0; i < data['strike'].length; i++){
-  if(data['strike'][i]['date'].substr(0,4) === select_year){
-    lonYear.push(data['strike'][i]['lon'])
-
-  }
-  else if(select_year === "all"){
-  lonYear.push(data['strike'][i]['lon'])
-
-  }
-
-  }
-return lonYear;
-
-}
-
-
-function createNewMap(){
+function createMap(){
   var styles = [
 
     {
@@ -106,14 +66,32 @@ map.setMapTypeId('map_style');
 
 
 // iterate through the arrays returned by getLat and GetLon and place markers on the map
-for( i = 0; i < data['strike'].length; i++ ) {
-        var position = new google.maps.LatLng(setYearLat()[i], setYearLon()[i]);
-        var date = data['strike'][i]['date'].substr(0,10);
-        var summary = data['strike'][i]['narrative']
-        var deaths = data['strike'][i]['deaths_max']
-        var twitterId = data['strike'][i]['tweet_id']
-        var image = 'greenDot.png'
-        var title = setInfo(date, summary, deaths, twitterId)
+
+
+        var lats = setYearLat()
+        var lons = setYearLon()
+        var deaths = setDeaths()
+        var dates = setDates();
+        var summaries = setSummary()
+        var twitterIds = setTwitter()
+
+for( i = 0; i < lats.length; i++ ) {
+
+        var position = new google.maps.LatLng(lats[i], lons[i])
+
+
+        var summary = summaries[i]
+        var death = deaths[i]
+        var date = formatDate(dates[i])
+        var twitterId = twitterIds[i]
+
+
+
+
+        // var deaths = data['strike'][i]['deaths_max']
+        // var twitterId = data['strike'][i]['tweet_id']
+        var image = 'red_x.png'
+        var title = setInfo(date, summary, death, twitterId)
 
         marker = new google.maps.Marker({
             position: position,
@@ -127,47 +105,20 @@ for( i = 0; i < data['strike'].length; i++ ) {
 
 var infoWindow = new google.maps.InfoWindow();
 google.maps.event.addListener(marker, 'click', (function() {
-            console.log(this);
+
 
             infoWindow.setContent(this.title);
             infoWindow.open(map, this);
-          // infoWindow.setContent(infoWindowContent);
-          // infoWindow.open(map, marker);
+
        }));
 
 
 }
-};
+ };
 
 
+createMap();
+$('#select_year').change(function(){
+  createMap();
 
-
-
-
-createNewMap();
-console.log(setYearLat());
-
-};
-
-
-
-function setSummary(){
-  var select_year = $('#select_year').val()
-  var summaries = []
-  //iterate through data and compare year to year selected, if it matches, return lat longs for that year.
-  for(i = 0; i < data['strike'].length; i++){
-    if(data['strike'][i]['date'].substr(0,4) === select_year){
-
-      summaries.push(data['strike'][i]['narrative'])
-
-    }
-    else if(select_year === "all"){
-    summaries.push(data['strike'][i]['narrative'])
-
-    }
-
-    }
-
-  return summaries;
-
-  }
+});
