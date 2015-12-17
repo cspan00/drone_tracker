@@ -1,9 +1,0 @@
-{
-  "firebase": "droneTracker",
-  "public": "public",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
