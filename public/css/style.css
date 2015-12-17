@@ -17,8 +17,8 @@ html, body {
 }
 
 #map{
-  height: 88%;
-  
+  height: 100%;
+
   margin: 0;
 
   z-index: 10;

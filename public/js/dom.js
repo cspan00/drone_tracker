@@ -90,7 +90,7 @@ for( i = 0; i < lats.length; i++ ) {
 
         // var deaths = data['strike'][i]['deaths_max']
         // var twitterId = data['strike'][i]['tweet_id']
-        var image = 'red_x.png'
+        var image = 'graphics/red_x.png'
         var title = setInfo(date, summary, death, twitterId)
 
         marker = new google.maps.Marker({
