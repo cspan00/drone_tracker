@@ -51,10 +51,10 @@ function createMap(){
       {name: "Styled Map"});
 
 
-
+//think about adjusting center for most strikes that year? 
 var mapOptions = {
-    zoom: 4,
-    center: new google.maps.LatLng(20.33877,57.43193),
+    zoom: 6,
+    center: new google.maps.LatLng(15.7177,47.43411),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
@@ -97,8 +97,8 @@ for( i = 0; i < lats.length; i++ ) {
             position: position,
             map: map,
             title: title,
-            icon: image
-
+            icon: image,
+            animation: google.maps.Animation.DROP
         });
 
 
