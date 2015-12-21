@@ -1,7 +1,5 @@
 
-
-
-
+var data = JSON.parse(localStorage.getItem('key'));
 
   function setYearLat(){
   var select_year = $('#select_year').val()
