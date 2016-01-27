@@ -23,6 +23,7 @@ var data = JSON.parse(localStorage.getItem('key'));
 function setYearLon(){
 var select_year = $('#select_year').val()
 var lonYear = []
+
 //iterate through data and compare year to year selected, if it matches, return lat longs for that year.
 for(i = 0; i < data['strike'].length; i++){
   if(data['strike'][i]['date'].substr(0,4) === select_year){
@@ -155,7 +156,7 @@ function setInfo(date, summary, deaths, twitterId){
 
   var info = '<div style="font-family:menlo;font-size:20px;color:red;">'+date+
   '</div><br><div style="font-family:menlo;font-size:15px;color:black;">'+summary+
-  '</div><br><div style="font-family:menlo;font-size:15px;color:black;">deaths:'+deaths+'</div><br><div><a href = https://twitter.com/dronestream/status/'+twitterId+'/>read more</a></div>'
+  '</div><br><div style="font-family:menlo;font-size:15px;color:black;">deaths:'+deaths+'</div><br><div><a href =  https://twitter.com/dronestream/status/'+twitterId+'/>read more</a></div>'
 
 
 
